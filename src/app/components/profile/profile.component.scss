@@ -1,0 +1,36 @@
+// @import 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/scss/mixins';
+
+.bg-trans-hack{
+  background-color: rgba(0,0,0,0);
+  // color: #ff6600 !important;
+  color: #f2ae24 !important;
+  font-size: 22px;
+  // text-align: center;
+}
+@media screen and (max-width: 575.98px) {
+// @include media-breakpoint-down(xs) {
+  .bg-trans-hack{
+    text-align: center;
+  }
+}
+
+.spooky{
+  background-color: rgba(0,0,0,0);
+  // color: #ff6600 !important;
+  color: #f2ae24 !important;
+  // border-radius: 5px;
+  // border-color: #33f333;
+  // border-style: solid;
+}
+
+.spooky:hover{
+  background-color: #f2ae24;
+  color: #000 !important;
+  // border-radius: 5px;
+  // border-color: rgba(0,0,0,0);
+  // border-style: solid;
+}
+
+.bg-trans-hack:focus{
+  border-color: #f2ae24 !important;
+}

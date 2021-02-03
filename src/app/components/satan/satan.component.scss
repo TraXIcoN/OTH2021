@@ -1,0 +1,16 @@
+.green-btn{
+  background-color: rgba(0, 0, 0, 0);
+  border-style: solid;
+  border-color: #f2ae24;
+  color: #f2ae24;
+  cursor: default;
+  text-align: center;
+  display: block;
+}
+.green-btn:hover{
+  background-color: #f2ae24;
+  color: #000 !important;
+  cursor: pointer;
+  text-align: center;
+  display: block;
+}
