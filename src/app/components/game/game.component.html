@@ -7,25 +7,45 @@
           <!-- <span>{{progress}}</span> -->
           <!-- % repaired -->
         </div>
-        <hr>
+        <hr />
         <div *ngIf="question" class="bottom-bar">
           <div *ngIf="question.type == 2">
             <div class="d-flex align-items-center justify-content-center">
-              <button *ngIf="butstr" class="msgbtn mi btnstr" (click)="showmsg()">You have a new message !!!!</button>
+              <button
+                *ngIf="butstr"
+                class="msgbtn mi btnstr"
+                (click)="showmsg()"
+              >
+                You have a new message !!!!
+              </button>
             </div>
             <div class="boundary">
-              <span #story id='story'></span><br><br>
-              <button *ngIf="showbutstr" class="msgbtn mi mx-auto" (click)="submit('ok')">Enough Talking</button>
+              <span #story id="story"></span><br /><br />
+              <button
+                *ngIf="showbutstr"
+                class="msgbtn mi mx-auto"
+                (click)="submit('ok')"
+              >
+                Enough Talking
+              </button>
             </div>
           </div>
           <div *ngIf="question.type == 3">
             <div *ngFor="let quest of question.data">
-              <div class="select-block mi row" (click)="split(quest.next_quest)">
+              <div
+                class="select-block mi row"
+                (click)="split(quest.next_quest)"
+              >
                 <div class="col-3">
-                  <img src="{{quest.image}}" height="100%" width="100%" alt="">
+                  <img
+                    src="{{ quest.image }}"
+                    height="100%"
+                    width="100%"
+                    alt=""
+                  />
                 </div>
                 <div class="col-9 av-text">
-                  {{quest.text}}
+                  {{ quest.text }}
                 </div>
               </div>
             </div>
@@ -33,25 +53,44 @@
           <div *ngIf="question.type == 4" class="mx-auto">
             <!-- change points code in php -->
             <div class="d-flex align-items-center justify-content-center">
-                <button *ngIf="showcong" class="msgbtn mi showcon" (click)="showcongo()">You have a new message !!!!</button>
-              </div>
-            <div *ngIf="showcontinue" class="d-flex align-items-center justify-content-center">
-              <button class="msgbtn mi btnstr av-continue" (click)="submit('ok')">Continue</button>
+              <button
+                *ngIf="showcong"
+                class="msgbtn mi showcon"
+                (click)="showcongo()"
+              >
+                You have a new message !!!!
+              </button>
+            </div>
+            <div
+              *ngIf="showcontinue"
+              class="d-flex align-items-center justify-content-center"
+            >
+              <button
+                class="msgbtn mi btnstr av-continue"
+                (click)="submit('ok')"
+              >
+                Continue
+              </button>
             </div>
             <div *ngIf="!showcong" class="av-container">
               <div class="screen-content">
-                
-                  <p #cstory id="cstory" class="congrats"></p>
-              
+                <p #cstory id="cstory" class="congrats"></p>
               </div>
-            </div> 
-            
+            </div>
           </div>
           <div *ngIf="question.type == 0">
-            <div [innerHTML]="question.question">
-            </div>
-            <input type="text" name="" value="" class="form-control bg-trans-hack" [(ngModel)]="answer" placeholder="Enter your answer"><br>
-            <button class="msgbtn mi mx-auto" (click)="submit(answer)">Sure ?</button>
+            <div [innerHTML]="question.question"></div>
+            <input
+              type="text"
+              name=""
+              value=""
+              class="form-control bg-trans-hack"
+              [(ngModel)]="answer"
+              placeholder="Enter your answer"
+            /><br />
+            <button class="msgbtn mi mx-auto" (click)="submit(answer)">
+              Sure ?
+            </button>
           </div>
           <div *ngIf="question.type == 1" class="mx-auto">
             <div *ngIf="loading" class="loading-que mx-auto">
@@ -60,9 +99,26 @@
                 <div class="loading-bar"></div>
               </div>
             </div>
-            <img [hidden]="loading" (load)="onLoad()" src="{{question.question}}" alt="failed to load image" width="70%" height="100%" class="img-mid"><br>
-            <input type="text" name="" value="" class="form-control bg-trans-hack" [(ngModel)]="answer" placeholder="Enter your answer"><br>
-            <button class="msgbtn mi mx-auto" (click)="submit(answer)">Sure ?</button>
+            <img
+              [hidden]="loading"
+              (load)="onLoad()"
+              src="{{ question.question }}"
+              alt="failed to load image"
+              width="70%"
+              height="100%"
+              class="img-mid"
+            /><br />
+            <input
+              type="text"
+              name=""
+              value=""
+              class="form-control bg-trans-hack"
+              [(ngModel)]="answer"
+              placeholder="Enter your answer"
+            /><br />
+            <button class="msgbtn mi mx-auto" (click)="submit(answer)">
+              Sure ?
+            </button>
           </div>
         </div>
         <div *ngIf="transmission" class="trans-pad">
@@ -75,6 +131,43 @@
     </div>
     <div class="col-lg-4">
       <app-leader></app-leader>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <h2>Get a Hint!</h2>
+  <!-- Trigger the modal with a button -->
+  <button
+    type="button"
+    class="btn btn-danger btn-lg"
+    data-toggle="modal"
+    data-target="#myModal"
+    (click)="hint()"
+  >
+    Get a Hint!
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">
+            &times;
+          </button>
+          <h4 class="modal-title">Some Text</h4>
+        </div>
+        <div class="modal-body">
+          <p>zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </div>

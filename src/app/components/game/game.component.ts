@@ -48,6 +48,15 @@ export class GameComponent implements OnInit, AfterViewInit  {
     }
   }
 
+  getHint(){
+    this.loading = true;
+    this.transmission = true;
+    this.data.postData("http://"+this.link+"/oth1-1819-back/hintloader.php",{user_id:this.profile.sub}).subscribe(res => {
+      this.transmission = false;
+      console.log(res);
+    })
+  }
+
   getQuestion(){
     this.loading = true;
     this.transmission = true;
@@ -62,7 +71,7 @@ export class GameComponent implements OnInit, AfterViewInit  {
         //console.log("Winner");
         this.router.navigate(['/victory']);
       }
-      
+
       if(res.type == 2){
         this.butstr = true;
       }
@@ -184,6 +193,9 @@ export class GameComponent implements OnInit, AfterViewInit  {
     });
   }
 
+  hint() {
+    this.getHint();
+  }
   split(next){
     //console.log(next);
     this.data.postData("http://"+this.link+"/oth1-1819-back/selector.php",{user_id:this.profile.sub,ques_no: this.question.cur_ques,ques_shift: next}).subscribe(res => {
