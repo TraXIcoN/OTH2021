@@ -17,7 +17,7 @@ export class GameComponent implements OnInit, AfterViewInit  {
   showbutstr: boolean = false;
   answer: String = null;
   transmission: boolean = true;
-   link:string = "localhost:3306";
+   link:string = "localhost";
   //link: string = "conor.ieeevesit.org";
 
   loading: boolean = true;

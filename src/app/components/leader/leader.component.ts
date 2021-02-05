@@ -11,7 +11,7 @@ import { Observable } from "rxjs";
 export class LeaderComponent implements OnInit,OnDestroy {
 
   // link:string = "localhost/ieee";
-  link: string = "localhost:4200";
+  link: string = "localhost";
   leaders: any;
   Obs: any;
 

@@ -15,7 +15,7 @@ export class ProfileComponent implements OnInit {
   cp: any;
   // link:string = "ieeevesit.org";
   // link:string = "localhost/ieee";
-  link: string = "localhost:4200";
+  link: string = "localhost";
 
   constructor(
     public auth: AuthService,
@@ -24,6 +24,7 @@ export class ProfileComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    console.log("in");
     if (this.auth.userProfile) {
       this.profile = this.auth.userProfile;
       this.getQuestion();
