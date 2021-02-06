@@ -14,6 +14,7 @@ export class GameComponent implements OnInit, AfterViewInit  {
   profile: any;
   question: any;
   hint: any;
+  info: any;
   butstr: boolean;
   showbutstr: boolean = false;
   answer: String = null;
@@ -42,21 +43,27 @@ export class GameComponent implements OnInit, AfterViewInit  {
       this.profile = this.auth.userProfile;
       this.getQuestion();
       this.getHint();
+      this.getInfo();
     } else {
       this.auth.getProfile((err, profile) => {
         this.profile = profile;
         this.getQuestion();
         this.getHint();
+        this.getInfo();
       });
     }
   }
 
+  getInfo(){
+    this.data.postData("http://"+this.link+"/oth1-1819-back/character.php",{user_id:this.profile.sub}).subscribe(res => {
+      console.log("This is the info log");
+      console.log(res);
+      this.info = res;
+    })
+  }
   getHint(){
     this.data.postData("http://"+this.link+"/oth1-1819-back/hintloader.php",{user_id:this.profile.sub}).subscribe(res => {
-      console.log("This is the hint log");
-      
       this.hint = res;
-      console.log(this.hint);
     })
   }
   getQuestion(){
