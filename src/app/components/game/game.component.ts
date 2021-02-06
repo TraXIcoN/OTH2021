@@ -42,6 +42,7 @@ export class GameComponent implements OnInit, AfterViewInit  {
       this.profile = this.auth.userProfile;
       this.getQuestion();
       this.getHint();
+      this.getInfo();
     } else {
       this.auth.getProfile((err, profile) => {
         this.profile = profile;
@@ -51,10 +52,19 @@ export class GameComponent implements OnInit, AfterViewInit  {
     }
   }
 
+  getInfo(){
+    this.data.postData("http://"+this.link+"/oth1-1819-back/character.php",{user_id:this.profile.sub}).subscribe(res => {
+      console.log("This is the info log");
+
+      this.hint = res;
+      console.log(this.hint);
+    })
+  }
+
   getHint(){
     this.data.postData("http://"+this.link+"/oth1-1819-back/hintloader.php",{user_id:this.profile.sub}).subscribe(res => {
       console.log("This is the hint log");
-      
+
       this.hint = res;
       console.log(this.hint);
     })
