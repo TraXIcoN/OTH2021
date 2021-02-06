@@ -13,6 +13,7 @@ export class GameComponent implements OnInit, AfterViewInit  {
   @ViewChild('cstory') cstory: ElementRef;
   profile: any;
   question: any;
+  hint: any;
   butstr: boolean;
   showbutstr: boolean = false;
   answer: String = null;
@@ -40,14 +41,24 @@ export class GameComponent implements OnInit, AfterViewInit  {
     if (this.auth.userProfile) {
       this.profile = this.auth.userProfile;
       this.getQuestion();
+      this.getHint();
     } else {
       this.auth.getProfile((err, profile) => {
         this.profile = profile;
-        this.getQuestion()
+        this.getQuestion();
+        this.getHint();
       });
     }
   }
 
+  getHint(){
+    this.data.postData("http://"+this.link+"/oth1-1819-back/hintloader.php",{user_id:this.profile.sub}).subscribe(res => {
+      console.log("This is the hint log");
+      
+      this.hint = res;
+      console.log(this.hint);
+    })
+  }
   getQuestion(){
     this.loading = true;
     this.transmission = true;
