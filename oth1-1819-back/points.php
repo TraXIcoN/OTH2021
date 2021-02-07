@@ -31,6 +31,9 @@ if ($_SESSION["user_id"] == $user_id) {
             while ($row = mysqli_fetch_assoc($result)) {
                 $cur_ques = $row["cur_ques"];
                 //$trust = $row["trust"];
+                $pts = $row["points"] - 3;
+                $update = "UPDATE `users` SET `points` = ".$pts."  WHERE `user_id` = '".$user_id."';";
+                mysqli_query($conn,$update);
                 $ques_details = "SELECT * FROM `questiongiver` WHERE `qno` = '" . $cur_ques . "';";
                 $ques_res = mysqli_query($conn, $ques_details);
                 if (mysqli_num_rows($ques_res) > 0) {
@@ -38,9 +41,11 @@ if ($_SESSION["user_id"] == $user_id) {
                         $response["cur_ques"] = $cur_ques;
                         $response["info"] = $row["info"];
                         if ($row["trust"] == $cur_trust) {
-                            $response["trust"] = 1;
+                            $val = 1;
+                            $response["trust"] = $val;
                         }else {
-                            $response["trust"] = 0;
+                            $val = 0;
+                            $response["trust"] = $val;
                         }
                     }
                 }

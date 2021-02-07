@@ -62,7 +62,7 @@ export class GameComponent implements OnInit, AfterViewInit  {
       console.log("This is the trust log");
       console.log(res);
       this.trust = res;
-    })
+    });
   }
 
   getInfo(){
