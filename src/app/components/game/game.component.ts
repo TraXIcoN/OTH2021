@@ -14,6 +14,8 @@ export class GameComponent implements OnInit, AfterViewInit  {
   profile: any;
   question: any;
   hint: any;
+  trust: any;
+  info: any;
   butstr: boolean;
   showbutstr: boolean = false;
   answer: String = null;
@@ -48,25 +50,32 @@ export class GameComponent implements OnInit, AfterViewInit  {
         this.profile = profile;
         this.getQuestion();
         this.getHint();
+        this.getInfo();
+
       });
     }
+  }
+
+  //This function is for capturing the trust value chosen by the user
+  getTrust(val){
+    this.data.postData("http://"+this.link+"/oth1-1819-back/points.php",{user_id:this.profile.sub, trust: val}).subscribe(res => {
+      console.log("This is the trust log");
+      console.log(res);
+      this.trust = res;
+    })
   }
 
   getInfo(){
     this.data.postData("http://"+this.link+"/oth1-1819-back/character.php",{user_id:this.profile.sub}).subscribe(res => {
       console.log("This is the info log");
-
-      this.hint = res;
-      console.log(this.hint);
+      console.log(res);
+      this.info = res;
     })
-  }
 
+  }
   getHint(){
     this.data.postData("http://"+this.link+"/oth1-1819-back/hintloader.php",{user_id:this.profile.sub}).subscribe(res => {
-      console.log("This is the hint log");
-
       this.hint = res;
-      console.log(this.hint);
     })
   }
   getQuestion(){
@@ -104,6 +113,8 @@ export class GameComponent implements OnInit, AfterViewInit  {
       // }
     })
   }
+
+
 
   showstrdisp(){
     var story = document.getElementById('story');

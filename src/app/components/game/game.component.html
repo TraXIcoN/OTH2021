@@ -146,7 +146,9 @@
                     <h4 class="modal-title">Some Text</h4>
                   </div>
                   <div class="modal-body">
-                    <p>split ka bakbak</p>
+                    <div *ngIf="info">
+                      <p>{{ info.info }}</p>
+                    </div>
                   </div>
                   <div class="modal-footer">
                     <button
@@ -155,6 +157,7 @@
                       data-toggle="modal"
                       data-target="#myModal"
                       data-dismiss="modal"
+                      (click)="getTrust(1)"
                     >
                       Trust
                     </button>
@@ -164,6 +167,7 @@
                       data-toggle="modal"
                       data-target="#myModal"
                       data-dismiss="modal"
+                      (click)="getTrust(0)"
                     >
                       Don't trust
                     </button>
