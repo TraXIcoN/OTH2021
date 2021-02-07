@@ -16,6 +16,8 @@ export class GameComponent implements OnInit, AfterViewInit  {
   hint: any;
   trust: any;
   info: any;
+  correct: number = 0;
+  check: any;
   butstr: boolean;
   showbutstr: boolean = false;
   answer: String = null;
@@ -56,6 +58,7 @@ export class GameComponent implements OnInit, AfterViewInit  {
     }
   }
 
+
   //This function is for capturing the trust value chosen by the user
   getTrust(val){
     this.data.postData("http://"+this.link+"/oth1-1819-back/points.php",{user_id:this.profile.sub, trust: val}).subscribe(res => {
@@ -78,6 +81,7 @@ export class GameComponent implements OnInit, AfterViewInit  {
       this.hint = res;
     })
   }
+
   getQuestion(){
     this.loading = true;
     this.transmission = true;
@@ -92,7 +96,7 @@ export class GameComponent implements OnInit, AfterViewInit  {
         //console.log("Winner");
         this.router.navigate(['/victory']);
       }
-      
+
       if(res.type == 2){
         this.butstr = true;
       }
@@ -114,7 +118,14 @@ export class GameComponent implements OnInit, AfterViewInit  {
     })
   }
 
+  checkTrial() {
+    if (this.correct >= 2) {
+      this.data.postData("http://"+this.link+"/oth1-1819-back/checkpoint.php",{user_id:this.profile.sub}).subscribe(res => {
+        console.log(res);
 
+      });
+    }
+  }
 
   showstrdisp(){
     var story = document.getElementById('story');
@@ -190,13 +201,16 @@ export class GameComponent implements OnInit, AfterViewInit  {
       console.log(this.question.type);
       // console.log(this.question.id);
       console.log(res);
-      console.log(res.cur_ques);
+      console.log(res.correct);
       console.log(res.attempt);
-      if(res.correct == 'false'){    
+
+      if(res.correct == 'false'){
         // if(this.question.id == 15){
         //   this.router.navigate["/home"];
         // //this.getQuestion();
         // }
+        this.correct += 1;
+        console.log(this.correct);
         alert("Oops that is not correct");
         if(res.cur_ques == 4 && res.attempt == 1){
           window.location.reload(true);
@@ -207,13 +221,15 @@ export class GameComponent implements OnInit, AfterViewInit  {
         }
       }
       else{
-        if(this.question.type != "2" && this.question.type != "4")
+        if(this.question.type != "2" && this.question.type != "4"){
           alert("I didn't expect that to be correct");
         //console.log("Here");
         this.getQuestion();
         this.answer = null;
       }
+      }
     });
+    this.checkTrial();
   }
 
   split(next){
