@@ -122,7 +122,7 @@ export class GameComponent implements OnInit, AfterViewInit  {
     if (this.correct >= 2) {
       this.data.postData("http://"+this.link+"/oth1-1819-back/checkpoint.php",{user_id:this.profile.sub}).subscribe(res => {
         console.log(res);
-
+        window.alert('hi') ? "" : window.location.reload();
       });
     }
   }
@@ -190,6 +190,11 @@ export class GameComponent implements OnInit, AfterViewInit  {
     this.showcontinue = true;
   }
 
+  function_enclosure(value) {
+    this.submit(value);
+    this.checkTrial();
+  }
+
   submit(value){
     if(this.question.type == '2'){
       document.getElementById('story').innerHTML = '';
@@ -202,7 +207,6 @@ export class GameComponent implements OnInit, AfterViewInit  {
       // console.log(this.question.id);
       console.log(res);
       console.log(res.correct);
-      console.log(res.attempt);
 
       if(res.correct == 'false'){
         // if(this.question.id == 15){
@@ -229,7 +233,6 @@ export class GameComponent implements OnInit, AfterViewInit  {
       }
       }
     });
-    this.checkTrial();
   }
 
   split(next){
