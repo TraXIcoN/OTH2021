@@ -175,6 +175,42 @@
                 </div>
               </div>
             </div>
+
+            <!-- Modal -->
+            <div
+              *ngIf="showModal"
+              class="modal fade"
+              id="myModal4"
+              role="dialog"
+            >
+              <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                      &times;
+                    </button>
+                    <h4 class="modal-title">YOU FAILED</h4>
+                  </div>
+                  <div class="modal-body">
+                    <p>
+                      You have failed your quest and have been resent in time to
+                      undo your mistakes
+                    </p>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-default"
+                      data-dismiss="modal"
+                      (click)="redirect()"
+                    >
+                      Close
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div *ngIf="question.type == 1" class="mx-auto">
             <div *ngIf="loading" class="loading-que mx-auto">

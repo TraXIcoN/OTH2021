@@ -22,7 +22,8 @@ export class GameComponent implements OnInit, AfterViewInit  {
   showbutstr: boolean = false;
   answer: String = null;
   transmission: boolean = true;
-   link:string = "localhost";
+  link:string = "localhost";
+  showModal: boolean = false;
   //link: string = "conor.ieeevesit.org";
 
   loading: boolean = true;
@@ -70,8 +71,6 @@ export class GameComponent implements OnInit, AfterViewInit  {
 
   getInfo(){
     this.data.postData("http://"+this.link+"/oth1-1819-back/character.php",{user_id:this.profile.sub}).subscribe(res => {
-      console.log("This is the info log");
-      console.log(res);
       this.info = res;
     })
 
@@ -100,31 +99,27 @@ export class GameComponent implements OnInit, AfterViewInit  {
       if(res.type == 2){
         this.butstr = true;
       }
-      // if(res.cur_ques > 1) {
-      //   this.tmach = Math.floor((res.cur_ques - 2) / 0.16);
-      //   if(this.tmach > 100)
-      //     this.tmach = 100;
-
-      //   if(res.cur_ques > 37)
-      //     this.prognum = Math.floor((res.cur_ques - 2) / 0.66);
-      //   else
-      //     this.prognum = Math.floor((res.cur_ques - 2) / 0.37);
-
-      //   if(res.cur_ques > 4 && res.cur_ques < 21)
-      //     this.progress = "time machine health: " + this.tmach + "%";
-      //   else
-      //   this.progress = "progress: " + this.prognum + "%";
-      // }
+      
     })
   }
 
   checkTrial() {
+    console.log("trials ",this.correct)
     if (this.correct >= 2) {
       this.data.postData("http://"+this.link+"/oth1-1819-back/checkpoint.php",{user_id:this.profile.sub}).subscribe(res => {
-        console.log(res);
+       /*  if(confirm('Failed')){
+          window.location.reload();  
+      } */
+
+      alert('You have failed at your quest'); 
+      this.redirect();
 
       });
     }
+  }
+
+  redirect(){
+    window.location.reload();
   }
 
   showstrdisp(){
@@ -195,14 +190,12 @@ export class GameComponent implements OnInit, AfterViewInit  {
       document.getElementById('story').innerHTML = '';
       document.getElementsByClassName('typed-cursor')[0].innerHTML='';
     }
-
+    
     this.showbutstr = false;
     this.data.postData("http://"+this.link+"/oth1-1819-back/checkques.php",{user_id:this.profile.sub,ans: value.toLowerCase()}).subscribe(res => {
-      console.log(this.question.type);
+      //console.log(this.question.type);
       // console.log(this.question.id);
-      console.log(res);
-      console.log(res.correct);
-      console.log(res.attempt);
+      //console.log(res);
 
       if(res.correct == 'false'){
         // if(this.question.id == 15){
@@ -210,15 +203,9 @@ export class GameComponent implements OnInit, AfterViewInit  {
         // //this.getQuestion();
         // }
         this.correct += 1;
-        console.log(this.correct);
         alert("Oops that is not correct");
-        if(res.cur_ques == 4 && res.attempt == 1){
-          window.location.reload(true);
-        //this.getQuestion();
-        }
-        if(res.cur_ques == 94 && res.attempt == 2){
-          this.router.navigate(['/loss']);
-        }
+        this.checkTrial();
+        
       }
       else{
         if(this.question.type != "2" && this.question.type != "4"){
@@ -229,7 +216,7 @@ export class GameComponent implements OnInit, AfterViewInit  {
       }
       }
     });
-    this.checkTrial();
+    
   }
 
   split(next){
