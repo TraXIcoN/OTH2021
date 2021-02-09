@@ -88,21 +88,24 @@
               [(ngModel)]="answer"
               placeholder="Enter your answer"
             /><br />
-            <button class="msgbtn mi mx-auto" (click)="submit(answer)">
-              Sure ?
-            </button>
+            <span class="d-flex">
+              <button class="msgbtn mi mx-auto" (click)="submit(answer)">
+                Sure ?
+              </button>
+              <button
+                type="button"
+                class="msgbtn mi mx-auto"
+                data-toggle="modal"
+                data-target="#myModal2"
+              >
+                Get a Hint!
+              </button>
+            </span>
+            <br /><br />
           </div>
           <div class="container">
             <h2></h2>
             <!-- Trigger the modal with a button -->
-            <button
-              type="button"
-              class="btn btn-danger btn-lg"
-              data-toggle="modal"
-              data-target="#myModal2"
-            >
-              Get a Hint!
-            </button>
 
             <!-- Modal -->
             <div class="modal fade" id="myModal" role="dialog">
