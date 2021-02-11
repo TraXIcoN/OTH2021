@@ -18,6 +18,7 @@ import { LeaderComponent } from './components/leader/leader.component';
 import { SatanComponent } from './components/satan/satan.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LossComponent } from './components/loss/loss.component';
+import { PointsComponent } from './components/points/points.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { LossComponent } from './components/loss/loss.component';
     LeaderComponent,
     SatanComponent,
     FooterComponent,
-    LossComponent
+    LossComponent,
+    PointsComponent
   ],
   imports: [
     BrowserModule,
