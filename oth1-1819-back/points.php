@@ -9,15 +9,6 @@ $response = array();
 $cur_ques;
 //$trust = 1;
 
-function console_log($output, $with_script_tags = true)
-{
-    $js_code = 'console.log(' . json_encode($output, JSON_HEX_TAG) .
-        ');';
-    if ($with_script_tags) {
-        $js_code = '<script>' . $js_code . '</script>';
-    }
-    echo $js_code;
-}
 
 
 if ($_SESSION["user_id"] == $user_id) {
@@ -32,8 +23,8 @@ if ($_SESSION["user_id"] == $user_id) {
                 $cur_ques = $row["cur_ques"];
                 //$trust = $row["trust"];
                 $pts = $row["points"] - 3;
-                $update = "UPDATE `users` SET `points` = ".$pts."  WHERE `user_id` = '".$user_id."';";
-                mysqli_query($conn,$update);
+                $update = "UPDATE `users` SET `points` = " . $pts . "  WHERE `user_id` = '" . $user_id . "';";
+                mysqli_query($conn, $update);
                 $ques_details = "SELECT * FROM `questiongiver` WHERE `qno` = '" . $cur_ques . "';";
                 $ques_res = mysqli_query($conn, $ques_details);
                 if (mysqli_num_rows($ques_res) > 0) {
@@ -43,7 +34,7 @@ if ($_SESSION["user_id"] == $user_id) {
                         if ($row["trust"] == $cur_trust) {
                             $val = 1;
                             $response["trust"] = $val;
-                        }else {
+                        } else {
                             $val = 0;
                             $response["trust"] = $val;
                         }
