@@ -16,12 +16,14 @@ export class GameComponent implements OnInit, AfterViewInit  {
   hint: any;
   trust: any;
   info: any;
+  img: boolean = false;
   correct: number = 0;
   check: any;
   butstr: boolean;
   showbutstr: boolean = false;
   answer: String = null;
   transmission: boolean = true;
+  image: String = "http://";
   link:string = "localhost";
   showModal: boolean = false;
   //link: string = "conor.ieeevesit.org";
@@ -99,7 +101,11 @@ export class GameComponent implements OnInit, AfterViewInit  {
       if(res.type == 2){
         this.butstr = true;
       }
-      
+      if(res.type == 5){
+        this.img = true;
+        this.image = this.image + res.question;
+        console.log(this.image);
+      }
     })
   }
 

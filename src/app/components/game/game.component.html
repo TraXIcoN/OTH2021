@@ -50,6 +50,28 @@
               </div>
             </div>
           </div>
+
+          <div *ngIf="question.type == 5">
+            <div class="select-block mi row" (click)="split(quest.next_quest)">
+              <div class="col">
+                <div *ngIf="question">
+                  <div *ngIf="question">
+                    <img
+                      src="{{ image }}"
+                      style="
+                        display: block;
+                        max-height: 100%;
+                        max-width: 100%;
+                        margin-left: auto;
+                        margin-right: auto;
+                      "
+                      alt=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           <div *ngIf="question.type == 4" class="mx-auto">
             <!-- change points code in php -->
             <div class="d-flex align-items-center justify-content-center">
