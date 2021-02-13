@@ -7,7 +7,7 @@ header("Access-Control-Allow-Headers: Access-Control-Allow-Headers, Origin,Accep
 $servername='localhost';
 $username='root';
 $password='';
-$dbname='oth';
+$dbname='oth1';
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
 ?>
