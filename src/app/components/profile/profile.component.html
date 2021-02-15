@@ -1,0 +1,84 @@
+<div *ngIf="completed == 1">
+  Loading your game .....
+</div>
+<div *ngIf="completed == 0" class="container text-center">
+  <h2>Don't Share this Information <br> Ehm You already did</h2>
+  <br>
+  <form>
+    <!-- <div class="form-group row">
+      <label class="col-sm-2">Email:</label>
+      <div class="col-sm-10">
+        {{profile.email}}
+      </div>
+    </div> -->
+    <div class="form-group row">
+      <label for="staticEmail" style="color:#d46e15;" class="col-sm-4 col-form-label">Email</label>
+      <div class="col-sm-8">
+        <input type="text" readonly class="form-control bg-trans-hack" id="staticEmail" value="{{profile.email}}">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputName" style="color:#d46e15;" class="col-sm-4 col-form-label">Fullname</label>
+      <div class="col-sm-8">
+        <input type="text" class="form-control bg-trans-hack" id="inputName" [(ngModel)]="cp.name" name="name">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputHName" style="color:#d46e15;" class="col-sm-4 col-form-label">HackerName</label>
+      <div class="col-sm-8">
+        <input type="text" class="form-control bg-trans-hack" id="inputHName" [(ngModel)]="cp.nickname" name="nickname">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputPh" style="color:#d46e15;" class="col-sm-4 col-form-label">Phone Number</label>
+      <div class="col-sm-8">
+        <input type="number" class="form-control bg-trans-hack" id="inputPh" [(ngModel)]="cp.phone" placeholder="Phone Number" name="phone">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputClass" style="color:#d46e15;" class="col-sm-4 col-form-label">Class</label>
+      <div class="col-sm-8">
+        <select class="form-control bg-trans-hack" id="inputClass" [(ngModel)]="cp.class" name="class">
+          <option selected>Select</option>
+          <option>D6A</option>
+          <option>D6B</option>
+          <option>D7A</option>
+          <option>D7B</option>
+          <option>D7C</option>
+          <option>D8</option>
+          <option>D9A</option>
+          <option>D9B</option>
+          <option>D9C</option>
+          <option>D10</option>
+          <option>D11A</option>
+          <option>D11B</option>
+          <option>D12A</option>
+          <option>D12B</option>
+          <option>D12C</option>
+          <option>D13</option>
+          <option>D14A</option>
+          <option>D14B</option>
+          <option>D14C</option>
+          <option>D15</option>
+          <option>D16A</option>
+          <option>D16B</option>
+          <option>D17A</option>
+          <option>D17B</option>
+          <option>D17C</option>
+          <option>D18</option>
+          <option>D19A</option>
+          <option>D19B</option>
+          <option>D19C</option>
+          <option>D20</option>
+          <option>MCA1A</option>
+          <option>MCA1B</option>
+          <option>MCA2A</option>
+          <option>MCA2B</option>
+          <option>MCA3A</option>
+          <option>MCA3B</option>
+        </select>
+      </div>
+    </div>
+    <button type="button" name="button" class="spooky mi" (click)="submit()">Submit</button>
+  </form>
+</div>

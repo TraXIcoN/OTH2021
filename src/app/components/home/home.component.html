@@ -1,0 +1,11 @@
+<div class="av-pad">
+  <h1 class="text-center">WELCOME TO<br>IEEE-OTH</h1>
+  <div class="text-center para">
+    <br>Welcome Genius. The end is here.<br>
+    Earth needs you.<br>
+    Come tackle space and time and do the impossible.<br>
+    Login to begin...<br><br>
+  </div>
+  <button class="green-btn mx-auto mi" *ngIf="!auth.isAuthenticated()" (click)="auth.login()">Enter your Credentials for Verification Purposes</button>
+  <button class="green-btn mx-auto mi" *ngIf="auth.isAuthenticated()" [routerLink]="['/profile']">Continue Your Quest</button>
+</div>

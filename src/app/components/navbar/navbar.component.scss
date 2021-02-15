@@ -1,0 +1,84 @@
+nav {
+  background-color: rgba(0, 0, 0, 0);
+}
+.text-green-hack {
+  color: #fff !important;
+  //color: rgba(51,254,51,0.8) !important;
+  // color: rgba(176, 49, 20, 0.8) !important;
+}
+
+.navbar-toggler {
+  padding: 0 !important;
+}
+
+.green-btn {
+  background-color: rgba(0, 0, 0, 0);
+  border: 0;
+  color: #fff;
+  //color: #33FE33;
+  // color: #b03114;
+  cursor: default;
+  text-align: right;
+  display: block;
+}
+.green-btn:hover {
+  background-color: transparent;
+  //background-color: #33fe33;
+  // background-color: #b03114;
+  border: 2px solid #f2ae24 !important;
+  box-shadow: 2px 0px #f2ae24, -2px 0px #f2ae24, 0px 2px #f2ae24,
+    0px -2px #f2ae24;
+  //box-shadow: 2px 0px #33fe33, -2px 0px #33fe33, 0px 2px #33fe33, 0px -2px #33fe33;
+  // box-shadow: 2px 0px #b03114, -2px 0px #b03114, 0px 2px #b03114, 0px -2px #b03114;
+  color: #f2ae24 !important;
+  cursor: pointer;
+  text-align: right;
+  display: block;
+
+  margin-left: -4px;
+}
+
+i {
+  //color: rgba(51,254,51,0.8) !important;
+  color: #f2ae24 !important;
+  // color: rgba(176, 49, 20, 0.8) !important;
+}
+
+.right {
+  float: right;
+  text-align: right;
+}
+
+.green-black {
+  background-color: rgba(0, 0, 0, 0);
+  border: 0;
+  color: #f2ae24;
+  //color: #33FE33;
+  // color: #b03114;
+  cursor: default;
+  text-align: center;
+  display: block;
+
+  margin-right: 10px;
+}
+
+.green {
+  //background-color: #33fe33;
+  background-color: #f2ae24;
+  // background-color: #b03114;
+  color: #f2ae24 !important;
+  border: 0;
+  cursor: pointer;
+  text-align: center;
+  display: block;
+  margin-right: 10px;
+}
+
+@font-face {
+  font-family: norse;
+  src: url(../../../assets/webfonts/norse.ttf);
+}
+
+.navbar {
+  font-family: norse;
+}
