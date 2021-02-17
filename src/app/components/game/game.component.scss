@@ -55,11 +55,11 @@
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
   -webkit-border-radius: 10px;
-  box-shadow: 0 0 70px #000000 inset, 0 1px 0 #383838;
-  -moz-box-shadow: 0 0 70px #000000 inset, 0 1px 0 #383838;
-  -ms-box-shadow: 0 0 70px #000000 inset, 0 1px 0 #383838;
-  -o-box-shadow: 0 0 70px #000000 inset, 0 1px 0 #383838;
-  -webkit-box-shadow: 0 0 70px #000000 inset, 0 1px 0 #383838;
+  box-shadow: 0 0 30px #b7410e inset, 0 1px 0 #880808;
+  -moz-box-shadow: 0 0 30px #b7410e inset, 0 1px 0 #880808;
+  -ms-box-shadow: 0 0 30px #b7410e inset, 0 1px 0 #880808;
+  -o-box-shadow: 0 0 30px #b7410e inset, 0 1px 0 #880808;
+  -webkit-box-shadow: 0 0 30px #b7410e inset, 0 1px 0 #880808;
   /* background: -webkit-linear-gradient(
       rgba(255, 255, 255, 0.8),
       rgba(151, 147, 149, 0.8)
@@ -229,7 +229,7 @@ hr {
   animation: glitch-line 7s linear 7s infinite;
   -webkit-animation-delay: 7s;
   animation-delay: 7s;
-  background: #000;
+  background: #f2ae24;
   content: "";
   height: 1px;
   left: 0;

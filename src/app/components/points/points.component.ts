@@ -42,7 +42,7 @@ export class PointsComponent implements OnInit {
     
     this.points = data.points
   })
-  this.obs = IntervalObservable.create(10000)
+  this.obs = IntervalObservable.create(100000)
         .subscribe(() => {
           this.data.postData('http://'+this.link+'/oth1-1819-back/showpoints.php',{user_id:this.profile.sub}).subscribe(data => {
             this.points = data.points

@@ -56,7 +56,6 @@ export class GameComponent implements OnInit, AfterViewInit  {
         this.getQuestion();
         this.getHint();
         this.getInfo();
-
       });
     }
   }
@@ -88,7 +87,7 @@ export class GameComponent implements OnInit, AfterViewInit  {
     this.transmission = true;
     this.data.postData("http://"+this.link+"/oth1-1819-back/quesloader.php",{user_id:this.profile.sub}).subscribe(res => {
       this.transmission = false;
-      //console.log(res);
+      console.log(res);
       this.question = res;
       if(res.cur_ques == -1){
         this.router.navigate["/profile"];
@@ -200,9 +199,8 @@ export class GameComponent implements OnInit, AfterViewInit  {
   }
 
   submit(value){
-    if(this.question.type == '2'){
       document.getElementById('story').innerHTML = '';
-    }
+      this.image = "http://";
     
     this.showbutstr = true;
     this.data.postData("http://"+this.link+"/oth1-1819-back/checkques.php",{user_id:this.profile.sub,ans: value.toLowerCase()}).subscribe(res => {
