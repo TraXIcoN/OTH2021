@@ -61,8 +61,8 @@ export class GameComponent implements OnInit, AfterViewInit  {
   //This function is for capturing the trust value chosen by the user
   getTrust(val){
     this.data.postData("http://"+this.link+"/oth1-1819-back/points.php",{user_id:this.profile.sub, trust: val}).subscribe(res => {
-      console.log("This is the trust log");
-      console.log(res);
+      //console.log("This is the trust log");
+      //console.log(res);
       this.trust = res;  
     });
     this.getHint()
@@ -85,12 +85,12 @@ export class GameComponent implements OnInit, AfterViewInit  {
     this.transmission = true;
     this.data.postData("http://"+this.link+"/oth1-1819-back/quesloader.php",{user_id:this.profile.sub}).subscribe(res => {
       this.transmission = false;
-      console.log(res);
+      //console.log(res);
       this.question = res;
       if(res.cur_ques == -1){
         this.router.navigate["/profile"];
       }
-      if(res.cur_ques == 95){
+      if(res.cur_ques == 71){
         //console.log("Winner");
         this.router.navigate(['/victory']);
       }
@@ -102,13 +102,13 @@ export class GameComponent implements OnInit, AfterViewInit  {
       if(res.type == 5){
         this.img = true;
         this.image = this.image + res.question;
-        console.log(this.image);
+        //console.log(this.image);
       }
     })
   }
 
   checkTrial() {
-    console.log("trials ",this.correct)
+    //console.log("trials ",this.correct)
     if (this.correct >= 2) {
       this.data.postData("http://"+this.link+"/oth1-1819-back/checkpoint.php",{user_id:this.profile.sub}).subscribe(res => {
        /*  if(confirm('Failed')){
@@ -204,7 +204,7 @@ export class GameComponent implements OnInit, AfterViewInit  {
     this.data.postData("http://"+this.link+"/oth1-1819-back/checkques.php",{user_id:this.profile.sub,ans: value.toLowerCase()}).subscribe(res => {
       //console.log(this.question.type);
       // console.log(this.question.id);
-      console.log(res);
+      //console.log(res);
 
       if(res.correct == 'false'){
         // if(this.question.id == 15){

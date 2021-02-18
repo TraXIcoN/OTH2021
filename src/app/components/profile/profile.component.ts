@@ -37,6 +37,7 @@ export class ProfileComponent implements OnInit {
   }
 
   submit(){
+    console.log(this.cp)
     if(this.cp.name.length > 6){
       if(this.cp.nickname.length > 6){
         if(this.cp.phone != null){

@@ -32,7 +32,7 @@ export class VictoryComponent implements OnInit {
 
   getQuestion(){
     this.data.postData("https://localhost/oth1-1819-back/satan.php",{user_id:this.profile.sub}).subscribe(res => {
-      if(res.cur_ques != 95){
+      if(res.cur_ques != 71){
         this.router.navigate(["/profile"]);
       }
       else{

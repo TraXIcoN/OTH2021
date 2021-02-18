@@ -1,9 +1,10 @@
-<div *ngIf="completed == 1">
-  Loading your game .....
-</div>
+<div *ngIf="completed == 1">Loading your game .....</div>
 <div *ngIf="completed == 0" class="container text-center">
-  <h2>Don't Share this Information <br> Ehm You already did</h2>
-  <br>
+  <h2>
+    Don't Share this Information <br />
+    Ehm You already did
+  </h2>
+  <br />
   <form>
     <!-- <div class="form-group row">
       <label class="col-sm-2">Email:</label>
@@ -12,33 +13,88 @@
       </div>
     </div> -->
     <div class="form-group row">
-      <label for="staticEmail" style="color:#d46e15;" class="col-sm-4 col-form-label">Email</label>
+      <label
+        for="staticEmail"
+        style="color: #d46e15"
+        class="col-sm-4 col-form-label"
+        >Email</label
+      >
       <div class="col-sm-8">
-        <input type="text" readonly class="form-control bg-trans-hack" id="staticEmail" value="{{profile.email}}">
+        <input
+          type="text"
+          readonly
+          class="form-control bg-trans-hack"
+          id="staticEmail"
+          value="{{ profile.email }}"
+        />
       </div>
     </div>
     <div class="form-group row">
-      <label for="inputName" style="color:#d46e15;" class="col-sm-4 col-form-label">Fullname</label>
+      <label
+        for="inputName"
+        style="color: #d46e15"
+        class="col-sm-4 col-form-label"
+        >Fullname</label
+      >
       <div class="col-sm-8">
-        <input type="text" class="form-control bg-trans-hack" id="inputName" [(ngModel)]="cp.name" name="name">
+        <input
+          type="text"
+          class="form-control bg-trans-hack"
+          id="inputName"
+          [(ngModel)]="cp.name"
+          name="name"
+        />
       </div>
     </div>
     <div class="form-group row">
-      <label for="inputHName" style="color:#d46e15;" class="col-sm-4 col-form-label">HackerName</label>
+      <label
+        for="inputHName"
+        style="color: #d46e15"
+        class="col-sm-4 col-form-label"
+        >HackerName</label
+      >
       <div class="col-sm-8">
-        <input type="text" class="form-control bg-trans-hack" id="inputHName" [(ngModel)]="cp.nickname" name="nickname">
+        <input
+          type="text"
+          class="form-control bg-trans-hack"
+          id="inputHName"
+          [(ngModel)]="cp.nickname"
+          name="nickname"
+        />
       </div>
     </div>
     <div class="form-group row">
-      <label for="inputPh" style="color:#d46e15;" class="col-sm-4 col-form-label">Phone Number</label>
+      <label
+        for="inputPh"
+        style="color: #d46e15"
+        class="col-sm-4 col-form-label"
+        >Phone Number</label
+      >
       <div class="col-sm-8">
-        <input type="number" class="form-control bg-trans-hack" id="inputPh" [(ngModel)]="cp.phone" placeholder="Phone Number" name="phone">
+        <input
+          type="number"
+          class="form-control bg-trans-hack"
+          id="inputPh"
+          [(ngModel)]="cp.phone"
+          placeholder="Phone Number"
+          name="phone"
+        />
       </div>
     </div>
     <div class="form-group row">
-      <label for="inputClass" style="color:#d46e15;" class="col-sm-4 col-form-label">Class</label>
+      <label
+        for="inputClass"
+        style="color: #d46e15"
+        class="col-sm-4 col-form-label"
+        >Class</label
+      >
       <div class="col-sm-8">
-        <select class="form-control bg-trans-hack" id="inputClass" [(ngModel)]="cp.class" name="class">
+        <select
+          class="form-control bg-trans-hack"
+          id="inputClass"
+          [(ngModel)]="cp.class"
+          name="class"
+        >
           <option selected>Select</option>
           <option>D6A</option>
           <option>D6B</option>
@@ -79,6 +135,28 @@
         </select>
       </div>
     </div>
-    <button type="button" name="button" class="spooky mi" (click)="submit()">Submit</button>
+    <div class="form-group row">
+      <label
+        for="inputField"
+        style="color: #d46e15"
+        class="col-sm-4 col-form-label"
+        >Question type</label
+      >
+      <div class="col-sm-8">
+        <select
+          class="form-control bg-trans-hack"
+          id="inputField"
+          [(ngModel)]="cp.field"
+          name="field"
+        >
+          <option selected>Select</option>
+          <option>Computer science</option>
+          <option>electronics and telecommunications</option>
+        </select>
+      </div>
+    </div>
+    <button type="button" name="button" class="spooky mi" (click)="submit()">
+      Submit
+    </button>
   </form>
 </div>
