@@ -26,6 +26,7 @@ export class GameComponent implements OnInit, AfterViewInit  {
   image: String = "http://";
   link:string = "localhost";
   showModal: boolean = false;
+  type: boolean = false;
   //link: string = "conor.ieeevesit.org";
 
   loading: boolean = true;
@@ -48,14 +49,10 @@ export class GameComponent implements OnInit, AfterViewInit  {
     if (this.auth.userProfile) {
       this.profile = this.auth.userProfile;
       this.getQuestion();
-      this.getHint();
-      this.getInfo();
     } else {
       this.auth.getProfile((err, profile) => {
         this.profile = profile;
         this.getQuestion();
-        this.getHint();
-        this.getInfo();
       });
     }
   }
@@ -66,8 +63,9 @@ export class GameComponent implements OnInit, AfterViewInit  {
     this.data.postData("http://"+this.link+"/oth1-1819-back/points.php",{user_id:this.profile.sub, trust: val}).subscribe(res => {
       console.log("This is the trust log");
       console.log(res);
-      this.trust = res;
+      this.trust = res;  
     });
+    this.getHint()
   }
 
   getInfo(){
@@ -132,7 +130,7 @@ export class GameComponent implements OnInit, AfterViewInit  {
     var story = document.getElementById('story');
     /* console.log(this.question.question);
     console.log("typed",Typed); */
-    
+    this.type=false;
     var self = this;
     document.getElementById('story').innerHTML = '';
     
@@ -201,7 +199,7 @@ export class GameComponent implements OnInit, AfterViewInit  {
   submit(value){
       document.getElementById('story').innerHTML = '';
       this.image = "http://";
-    
+      this.type=true;
     this.showbutstr = true;
     this.data.postData("http://"+this.link+"/oth1-1819-back/checkques.php",{user_id:this.profile.sub,ans: value.toLowerCase()}).subscribe(res => {
       //console.log(this.question.type);

@@ -35,39 +35,41 @@ if ($conn->connect_error) {
           if ($correct == $ans) {
 
             if ($row1['type'] != 2 && $row1['type'] != 3 && $row1['type'] != 4 && $row1['type'] != 5) {
-              if ($curr == 78) {
-                $pts = $row["points"] - 5;
+              $pts = $row["points"] + 10;
+              if ($curr == 46) {
+                $response["qno"] = $curr;
+                $update = "UPDATE `users` SET `cur_ques` = '48', `points` = " . $pts . " WHERE `user_id` = '" . $user_id . "';";
               } else {
-                $pts = $row["points"] + 10;
+                $update = "UPDATE `users` SET `cur_ques` = " . $row1["next"] . ", `points` = " . $pts . " WHERE `user_id` = '" . $user_id . "';";
               }
-              $update = "UPDATE `users` SET `cur_ques` = " . $row1["next"] . ", `points` = " . $pts . "  WHERE `user_id` = '" . $user_id . "';";
               mysqli_query($conn, $update);
+              $response["qno"] = $curr;
+              $response["msg"] = "somethin fucked";
             } else {
-              if ($curr == 19) {
-                $response["wut"] = "if";
+              if ($curr == 46) {
+                $response["qno"] = $curr;
+                $update = "UPDATE `users` SET `cur_ques` = '47' WHERE `user_id` = '" . $user_id . "';";
+              } else if ($curr == 19) {
+                $response["qno"] = $curr;
                 if ($branch == 0) {
-                  $update = "UPDATE `users` SET `cur_ques` = '20' WHERE `user_id` = '" . $user_id . "';";
+                  $update = "UPDATE `users` SET `cur_ques` = '28' WHERE `user_id` = '" . $user_id . "';";
                 } else {
-
-                  $update = "UPDATE `users` SET `cur_ques` = '56' WHERE `user_id` = '" . $user_id . "';";
+                  $update = "UPDATE `users` SET `cur_ques` = '55' WHERE `user_id` = '" . $user_id . "';";
                 }
               } else {
-                $response["wut"] = "else";
+                $response["qno"] = $curr;
+                $response["msg"] = "somethin fishy";
                 $update = "UPDATE `users` SET `cur_ques` = " . $row1["next"] . " WHERE `user_id` = '" . $user_id . "';";
               }
               mysqli_query($conn, $update);
             }
             $response["correct"] = "true";
-            $respone["curr_ques"] = $curr;
+            $response["curr_ques"] = $curr;
           } else {
-            $a = 3;
-            $b = 81;
-            if ($curr == 80 && $attempt == 1) {
-              $update = "UPDATE `users` SET `cur_ques` = '" . $a . "'  WHERE `user_id` = '" . $user_id . "';";
+            if ($curr == 46) {
+              $update = "UPDATE `users` SET `cur_ques` = '51' WHERE `user_id` = '" . $user_id . "';";
             }
-            if ($curr == 80 && $attempt == 2) {
-              $update = "UPDATE `users` SET `cur_ques` = '" . $b . "'  WHERE `user_id` = '" . $user_id . "';";
-            }
+
             $response["correct"] = "false";
           }
         }

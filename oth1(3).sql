@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 17, 2021 at 11:00 AM
+-- Generation Time: Feb 18, 2021 at 12:35 PM
 -- Server version: 10.4.16-MariaDB
 -- PHP Version: 7.4.12
 
@@ -44,6 +44,7 @@ INSERT INTO `hints` (`id`, `hint`) VALUES
 (33, 'Organizing data'),
 (35, 'seq access of data in tape has some limitations so order must be defined in such a way that MRT can be obtained'),
 (37, 'fingertips is the standard 101/102-key PC keyboard. Use permutations and combinational logic and enqueue '),
+(46, 'How unfortunate, for our paths have crossed yet again. Now you shall listen to me closely. You are the lone reason for its revival, but you are no match for the Evil. <br>\r\n“My sole purpose is to guard the prison with all I have.” hahaha. I now recall everything that it does, the sheer power it holds. Crafty little solitaire. It has dawned upon you, overseeing every breath you take, every word you say. And it will remain for as long as the evil is free. Stifle, for that’s the only way to be victorious.\r\n'),
 (58, 'I can feel the change in entropy and I am exploited for it. My friends all think they are better than I am and they are not wrong. '),
 (60, 'I like playing with the output motion. They go higher and higher like on a rollercoaster'),
 (62, ' I am the changer of destiny. The energies come to me in one form and leave in another.'),
@@ -77,7 +78,7 @@ INSERT INTO `images` (`qno`, `image`) VALUES
 --
 
 CREATE TABLE `questiongiver` (
-  `qno` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `info` varchar(1000) NOT NULL,
   `trust` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -86,15 +87,21 @@ CREATE TABLE `questiongiver` (
 -- Dumping data for table `questiongiver`
 --
 
-INSERT INTO `questiongiver` (`qno`, `info`, `trust`) VALUES
-(6, 'Hello, My great powerful self is here to give you your hint for the question! ', 1),
-(7, 'Did I hear that you trusted Pride’s hint? If that is the case then you better trust mine as well.\r\n', 1),
-(8, 'I am here to give your next hint. I am happy and content with my life and do not wish anything in return', 0),
-(9, 'I am steaming with fury as stand here waiting to give you your next hint', 1),
-(10, 'DUMMY hint', 0),
-(11, ' I have your hint ready with me, but i hope I get something in return for I do not do anything that does not advantage me, I love power I love money, and above all I am hungry for them both.\r\n', 1),
-(12, 'dummy hint q 12', 0),
-(13, 'How unfortunate, for our paths have crossed yet again. Now you shall listen to me closely. You are the lone reason for its revival, but you are no match for the Evil. <br>\r\n“My sole purpose is to guard the prison with all I have.” hahaha. I now recall everything that it does, the sheer power it holds. Crafty little solitaire. It has dawned upon you, overseeing every breath you take, every word you say. And it will remain for as long as the evil is free. Stifle, for that’s the only way to be victorious.\r\n', 1);
+INSERT INTO `questiongiver` (`id`, `info`, `trust`) VALUES
+(25, 'It hurts my pride to see you with all this power which belonged to me and still needing assistance. Anyway, here is your hint.', 1),
+(27, ' Did I hear that you trusted Pride’s hint? If that is the case then you better trust mine as well.', 1),
+(29, 'I am here to give your next hint. Don’t fret, for I am happy and content with my life and do not wish anything from you in return.', 0),
+(31, 'One job, that is all you have. AND YOU STILL HAVE THE NERVE TO ASK FOR MY ASSISTANCE? HERE’S YOUR HINT NOW HURRY UP! ', 1),
+(33, 'I don’t care who you are and what you have done till now, neither am I interested in who wins and loses. I have your hint, take it or leave it.', 0),
+(35, ' I have your hint ready with me, but I hope I get something in return for I do not do anything for free. I crave for power and money, and above all I am hungry for them both. I’m sure you’ll be able to help me with the latter. Here’s your hint. ', 1),
+(37, ' I was expecting you to work things out yourself and now you need me to help you? That is too much to ask! Here’s all that I know, figure it on your own now. ', 0),
+(58, 'It hurts my pride to see you with all this power which belonged to me and still needing assistance. Anyway, here is your hint.', 1),
+(60, ' Did I hear that you trusted Pride’s hint? If that is the case then you better trust mine as well.', 1),
+(62, 'I am here to give your next hint. Don’t fret, for I am happy and content with my life and do not wish anything from you in return.', 0),
+(64, 'One job, that is all you have. AND YOU STILL HAVE THE NERVE TO ASK FOR MY ASSISTANCE? HERE’S YOUR HINT NOW HURRY UP! ', 1),
+(66, 'I don’t care who you are and what you have done till now, neither am I interested in who wins and loses. I have your hint, take it or leave it.', 0),
+(68, ' I have your hint ready with me, but I hope I get something in return for I do not do anything for free. I crave for power and money, and above all I am hungry for them both. I’m sure you’ll be able to help me with the latter. Here’s your hint. ', 1),
+(70, ' I was expecting you to work things out yourself and now you need me to help you? That is too much to ask! Here’s all that I know, figure it on your own now. ', 0);
 
 -- --------------------------------------------------------
 
@@ -162,31 +169,31 @@ INSERT INTO `questions` (`id`, `type`, `ques`, `ans`, `next`, `qno`, `checkno`) 
 (43, 2, 'Finally, the moment I was waiting for, altast i am free! HAHAHA. Look at you! This confusion on your visage. You haven’t the faintest idea of what is going on or what you just did, do you?<br> Ahhhh, allow me to make it simple for you, you imbecile.  I corrupted that mindless guide and made him my little puppet. I suspected that that wouldn’t work. But you my friend, you are the undefeated champion amongst all these clowns! You were fooled by your own self! You were the one who broke me free! And you are going to watch the world burn. This is your doing. But first, let me tell you how. This is the least I can do to return the favour. You and that foolish guide and all those 7 who you thought were your friends, were inside the mind of that arrogant guard. AHAHA He thought he could imprison this legend inside a metal box and save the world. Little did he know!', 'ok', 44, 0, 0),
 (44, 2, 'Those 7 you met were my devotees. The seven deadly sins; pride, envy, lust, gluttony, sloth, greed and wrath. And everytime you answered a question thinking you were closing in to kill the beast, you were right. But you missed a pertinent detail, he was the guardian of the prison confining me.And your every correct answer freed one of the sins and finally, ME! A LIVING APOCALYPSE! The destruction you just saw is the beginning of how I will make this hell of a place, my own empire! I will obliterate everything that will stand in my way, STARTING WITH YOU!', 'ok', 45, 0, 0),
 (45, 5, 'localhost/oth1-1819-back/images/15.png', 'ok', 46, 0, 0),
-(46, 0, 'QUESTION 13', 'a', 250, 13, 0),
-(47, 2, 'Confused but trusting his words, you proceed to grip your neck like the beast said. You find something chained around your neck. A gem resting elegantly on a pendant. You frantically hold it out towards the Evil hoping for it to work its magic. <br> You hear a voice at the back of your mind, almost as if that necklace is talking to you.', 'ok', 44, 0, 0),
-(48, 5, 'localhost/oth1-1819-back/images/16-a-1.png', 'ok', 46, 0, 0),
-(49, 2, '“Your sole purpose is to guard the prison with all you have.”<br> “What have I done.”<br> “Your sole purpose is to guard the prison with all you have.”<br> “This is all because of me.”<br> “Your sole purpose is to guard the prison with all you have.”<br> “M-my only purpose is to guard the prison with all I have.”<br> Evil: “This cannot be happening again! NOOOO!”<br> “My only purpose is to guard the prison with all I have.”', 'ok', 47, 0, 0),
+(46, 0, 'QUESTION 13', 'a', 0, 13, 0),
+(47, 2, 'Confused but trusting his words, you proceed to grip your neck like the beast said. You find something chained around your neck. A gem resting elegantly on a pendant. You frantically hold it out towards the Evil hoping for it to work its magic. <br> You hear a voice at the back of your mind, almost as if that necklace is talking to you.', 'ok', 48, 0, 0),
+(48, 5, 'localhost/oth1-1819-back/images/16-a-1.png', 'ok', 49, 0, 0),
+(49, 2, '“Your sole purpose is to guard the prison with all you have.”<br> “What have I done.”<br> “Your sole purpose is to guard the prison with all you have.”<br> “This is all because of me.”<br> “Your sole purpose is to guard the prison with all you have.”<br> “M-my only purpose is to guard the prison with all I have.”<br> Evil: “This cannot be happening again! NOOOO!”<br> “My only purpose is to guard the prison with all I have.”', 'ok', 50, 0, 0),
 (50, 5, 'localhost/oth1-1819-back/images/16-a-2.png', 'ok', 51, 0, 0),
-(51, 2, '“YOU ARE NOT AWARE OF THE POWER I POSSESS!!!!” <br> You see a prison in front of you. You try to recall everything that happened but fail to do so. LET ME OUT OF HERE!<br> < As you go near the cage, you see a peculiar necklace lying next to him shining so bright it is almost blinding.You fail to recall absolutely anything. In the midst of this utter confusion, your conscience speaks to you. ><br> ”My sole purpose is to guard the prison with all I have.”', 'ok', 48, 0, 0),
-(52, 2, ' MUAHAHAHAHAHAHAHA. After years of being held hostage, after years of feeling weak and after years of planning, praying and hoping for this very moment MUAHAHAHAHA, I feel ALIVE! It is so sad that you came this far from where you were, this close to where the treasure lies and yet you lost. One wrong answer and you helped me gain all of my strength back! Now, it is time for you to go away. YOU need to go away for your purpose was only to free me. *Kills*. *black screen* *game over*', 'A', 49, 0, 0),
-(53, 5, 'localhost/oth1-1819-back/images/16-b.png', 'A', 0, 0, 0),
-(54, 5, 'localhost/oth1-1819-back/images/7.1.png', 'ok', 57, 0, 0),
-(55, 2, 'In order to find a chant word, you will have to cross two hurdles. If you manage to successfully overcome the first one, the second one will be a breeze. You will be forced to retreat if you fail to overcome the second one. In case you find it difficult to conquer the first one, use the potion. But use it wisely, for that is your only answer when you run out of ways throughout this journey.\r\n<br>\r\nRemember, if they get the slightest hint of why you really are here, you will end up dead. So be sharp my friend. Godspeed. <br>\r\n', 'ok', 21, 0, 0),
-(56, 5, 'localhost/oth1-1819-back/images/4.jpg', 'ok', 60, 0, 0),
-(57, 2, 'Ohhh, so you are that brave warrior everyone’s talking about huh! You think you’ll be able to find the chant word and use it when I, out of all, could not? I have tried everything that was in my hands….EVERYTHING. I wonder what difference you will be able to make. Let’s see if you can find the word and make it out of here, alive.\r\n', 'ok', 25, 0, 0),
-(58, 0, 'I am an itty-bitty wee lad. I am very aware of my surroundings. I have a dynamic personality. My fickle defiance is what makes me special. I am omniform. People say my personality is problematic.', 'thermistor', 58, 6, 0),
-(59, 2, 'Hmm, so somehow, the ability to save the beast has been taken away from me, and handed over to you? I have been stuck in this hell hole waiting for you to come and rescue. What makes you so special?', 'ok', 27, 0, 0),
-(60, 0, ' I am very fast. I keep a check on potential. My stations are synonymous and I am a fast processor. I am calm even if the warmth changes around me. I am very silent. ', 'mosfet', 60, 7, 0),
-(61, 2, ' I want my powers back. I WANT THEM BACK! But turns out, no one but you can pull us out of this mess. You have no idea how much it stirs me up. Do what you are here to do so that i can go back to becoming the paragon and bring back the beast. Hurry.', 'ok', 29, 0, 0),
-(62, 0, 'I am the quantifier of tautness in the one that ferries the converted chemical energy. The variation in pressure results in the conversion of opposition. When the tautness occurs on a road in my area, the pressure increases largely. When the road has lots of traffic, the road broadens and when there is less traffic, the road narrows. I am very low maintenance. I live a long, long life. Who am I?', 'strain gauge', 62, 8, 0),
-(63, 2, 'WHY IS IT SUPPOSED TO BE LIKE THIS. YOU KNOW WHAT RESPONSIBILITY LIES ON YOUR SHOULDERS? FIND THE WORD, AND GET ME OUT OF HERE. YOU BETTER BE ABLE TO DO IT QUICKLY OR THIS WILL BE THE END OF YOU.\r\n', 'ok', 31, 0, 0),
-(64, 0, 'I am responsible for transforming extreme values. The entire signal dances on my command. I have an organ that makes the force flow in just one direction. One of my other organs is capable of hoarding chemical energy. I am used as a safety measure in energy roller coasters.', 'clamper circuit', 64, 9, 0),
-(65, 2, 'Ah, Now that you are here, hear me out!! The most of what I eat or drink goes to create a desire for more and MORE! But this place is not fulfilling my cravings, feels like hell to me...i need to get out of here in any condition!!!! HELP ME!!!\r\n', 'ok', 33, 0, 0),
-(66, 0, 'I am a kind of a link or a support. I have 4 hands such that any one of my hands is connected to any other two hands. Out of these 4 hands, two are purely resistive. The 3rd hand works like a high pass filter whereas the 4th hand works like a low pass filter. Who am I? ', 'wien bridge', 66, 10, 0),
-(67, 2, 'OH WELCOME! I can picture myself winning already!! And, of course, getting all of my powers back,too. What are you doing here now?!!! I WANT ALL THE POWERS, Go rescue me so that I can get them back, GO!', 'ok', 0, 0, 0),
-(68, 0, 'I was launched 3 years back but still viable for doing the most heavy tasks which the latest models do not support.I am an integral part of a computer system.I run on more than 5000 central parts.Who am I?', 'rtx 8000 quadro gpu', 68, 11, 0),
-(69, 2, 'Oh you are finally here. I have been waiting for you. Good i did not make any efforts, you’ll figure it out for me anyway. All you need to do is find the chant word and use it to set me free and together we’ll save the beast. But I think you already know that haha. Get to work quickly!', 'ok', 40, 0, 0),
-(70, 0, 'One of my many functions is coded below. Decode it and guess who am I?<br>\r\n<br>\r\n.. -. ....... -- . --..-- ....... .- ....... -.. . ... .. --. -. ....... -.-. --- -. ... .. ... - ... ....... .- - ....... .- ....... -- <br>.. -. .. -- ..- -- ....... --- ..-. ....... .- -. ....... . -. - .. - -.-- ....... .-- .... .. -.-. .... ....... -.. . ... -.-. <br>.-. .. -... . ... ....... - .... . ....... .. -. - . .-. ..-. .- -.-. . ....... .- -. -.. ....... .- -. ....... .- .-. -.-. .... .. <br>- . -.-. - ..- .-. . ....... .-- .... .. -.-. .... ....... -.-. --- -. - .- .. -. ... ....... - .... . ....... .- -.-. - ..- .- <br>.-.. ....... .. -- .--. .-.. . -- . -. - .- - .. --- -.', 'vhdl', 40, 12, 0),
+(51, 2, '“YOU ARE NOT AWARE OF THE POWER I POSSESS!!!!” <br> You see a prison in front of you. You try to recall everything that happened but fail to do so. LET ME OUT OF HERE!<br> < As you go near the cage, you see a peculiar necklace lying next to him shining so bright it is almost blinding.You fail to recall absolutely anything. In the midst of this utter confusion, your conscience speaks to you. ><br> ”My sole purpose is to guard the prison with all I have.”', 'ok', 250, 0, 0),
+(52, 2, ' MUAHAHAHAHAHAHAHA. After years of being held hostage, after years of feeling weak and after years of planning, praying and hoping for this very moment MUAHAHAHAHA, I feel ALIVE! It is so sad that you came this far from where you were, this close to where the treasure lies and yet you lost. One wrong answer and you helped me gain all of my strength back! Now, it is time for you to go away. YOU need to go away for your purpose was only to free me. *Kills*. *black screen* *game over*', 'ok', 53, 0, 0),
+(53, 5, 'localhost/oth1-1819-back/images/16-b.png', 'ok', 1, 0, 0),
+(54, 5, 'localhost/oth1-1819-back/images/7.1.png', 'ok', 55, 0, 0),
+(55, 2, 'In order to find a chant word, you will have to cross two hurdles. If you manage to successfully overcome the first one, the second one will be a breeze. You will be forced to retreat if you fail to overcome the second one. In case you find it difficult to conquer the first one, use the potion. But use it wisely, for that is your only answer when you run out of ways throughout this journey.\r\n<br>\r\nRemember, if they get the slightest hint of why you really are here, you will end up dead. So be sharp my friend. Godspeed. <br>\r\n', 'ok', 56, 0, 0),
+(56, 5, 'localhost/oth1-1819-back/images/4.jpg', 'ok', 57, 0, 0),
+(57, 2, 'Ohhh, so you are that brave warrior everyone’s talking about huh! You think you’ll be able to find the chant word and use it when I, out of all, could not? I have tried everything that was in my hands….EVERYTHING. I wonder what difference you will be able to make. Let’s see if you can find the word and make it out of here, alive.\r\n', 'ok', 58, 0, 0),
+(58, 0, 'I am an itty-bitty wee lad. I am very aware of my surroundings. I have a dynamic personality. My fickle defiance is what makes me special. I am omniform. People say my personality is problematic.', 'thermistor', 59, 6, 0),
+(59, 2, 'Hmm, so somehow, the ability to save the beast has been taken away from me, and handed over to you? I have been stuck in this hell hole waiting for you to come and rescue. What makes you so special?', 'ok', 60, 0, 0),
+(60, 0, ' I am very fast. I keep a check on potential. My stations are synonymous and I am a fast processor. I am calm even if the warmth changes around me. I am very silent. ', 'mosfet', 61, 7, 0),
+(61, 2, ' I want my powers back. I WANT THEM BACK! But turns out, no one but you can pull us out of this mess. You have no idea how much it stirs me up. Do what you are here to do so that i can go back to becoming the paragon and bring back the beast. Hurry.', 'ok', 62, 0, 0),
+(62, 0, 'I am the quantifier of tautness in the one that ferries the converted chemical energy. The variation in pressure results in the conversion of opposition. When the tautness occurs on a road in my area, the pressure increases largely. When the road has lots of traffic, the road broadens and when there is less traffic, the road narrows. I am very low maintenance. I live a long, long life. Who am I?', 'strain gauge', 63, 8, 0),
+(63, 2, 'WHY IS IT SUPPOSED TO BE LIKE THIS. YOU KNOW WHAT RESPONSIBILITY LIES ON YOUR SHOULDERS? FIND THE WORD, AND GET ME OUT OF HERE. YOU BETTER BE ABLE TO DO IT QUICKLY OR THIS WILL BE THE END OF YOU.\r\n', 'ok', 64, 0, 0),
+(64, 0, 'I am responsible for transforming extreme values. The entire signal dances on my command. I have an organ that makes the force flow in just one direction. One of my other organs is capable of hoarding chemical energy. I am used as a safety measure in energy roller coasters.', 'clamper circuit', 65, 9, 0),
+(65, 2, 'Ah, Now that you are here, hear me out!! The most of what I eat or drink goes to create a desire for more and MORE! But this place is not fulfilling my cravings, feels like hell to me...i need to get out of here in any condition!!!! HELP ME!!!\r\n', 'ok', 66, 0, 0),
+(66, 0, 'I am a kind of a link or a support. I have 4 hands such that any one of my hands is connected to any other two hands. Out of these 4 hands, two are purely resistive. The 3rd hand works like a high pass filter whereas the 4th hand works like a low pass filter. Who am I? ', 'wien bridge', 67, 10, 0),
+(67, 2, 'OH WELCOME! I can picture myself winning already!! And, of course, getting all of my powers back,too. What are you doing here now?!!! I WANT ALL THE POWERS, Go rescue me so that I can get them back, GO!', 'ok', 68, 0, 0),
+(68, 0, 'I was launched 3 years back but still viable for doing the most heavy tasks which the latest models do not support.I am an integral part of a computer system.I run on more than 5000 central parts.Who am I?', 'rtx', 69, 11, 0),
+(69, 2, 'Oh you are finally here. I have been waiting for you. Good i did not make any efforts, you’ll figure it out for me anyway. All you need to do is find the chant word and use it to set me free and together we’ll save the beast. But I think you already know that haha. Get to work quickly!', 'ok', 70, 0, 0),
+(70, 0, 'One of my many functions is coded below. Decode it and guess who am I?<br>\r\n<br>\r\n.. -. ....... -- . --..-- ....... .- ....... -.. . ... .. --. -. ....... -.-. --- -. ... .. ... - ... ....... .- - ....... .- ....... -- <br>.. -. .. -- ..- -- ....... --- ..-. ....... .- -. ....... . -. - .. - -.-- ....... .-- .... .. -.-. .... ....... -.. . ... -.-. <br>.-. .. -... . ... ....... - .... . ....... .. -. - . .-. ..-. .- -.-. . ....... .- -. -.. ....... .- -. ....... .- .-. -.-. .... .. <br>- . -.-. - ..- .-. . ....... .-- .... .. -.-. .... ....... -.-. --- -. - .- .. -. ... ....... - .... . ....... .- -.-. - ..- .- <br>.-.. ....... .. -- .--. .-.. . -- . -. - .- - .. --- -.', 'vhdl', 38, 12, 0),
 (71, 2, '----------', 'ok', 69, 0, 0);
 
 -- --------------------------------------------------------
@@ -237,8 +244,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`email`, `user_id`, `nickname`, `cur_ques`, `class`, `mobile`, `points`, `completed`, `name`, `path_choosen`, `timestamp`, `visited_satan`) VALUES
-('2018.abhijit.thikekar@ves.ac.in', 'google-oauth2|105433689313729912881', '2018.abhijit.thikekar', 5, 'D14A', 8797897899, 0, 1, 'ABHIJIT THIKEKAR', 0, '2021-02-17 09:55:46', 0),
-('2018.aditya.mohan@ves.ac.in', 'google-oauth2|106728491902866631234', '2018.aditya.mohan', 25, 'D13', 999999999999999, 91, 1, 'Aditya Mohan', 0, '2021-02-16 20:19:05', 0);
+('2018.abhijit.thikekar@ves.ac.in', 'google-oauth2|105433689313729912881', '2018.abhijit.thikekar', 52, 'D12A', 8898803649, 0, 1, 'ABHIJIT THIKEKAR', 1, '2021-02-18 10:39:57', 0),
+('2018.aditya.mohan@ves.ac.in', 'google-oauth2|106728491902866631234', '2018.aditya.mohan', 0, 'D13', 999999999999999, 70, 1, 'Aditya Mohan', 0, '2021-02-17 14:25:03', 0);
 
 --
 -- Indexes for dumped tables
@@ -260,7 +267,7 @@ ALTER TABLE `images`
 -- Indexes for table `questiongiver`
 --
 ALTER TABLE `questiongiver`
-  ADD PRIMARY KEY (`qno`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `questions`
